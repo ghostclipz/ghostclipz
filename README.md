@@ -1,15 +1,24 @@
 # 👻 Ghostclipz
 
-Ein kleines Browser-Spiel: Du fliegst als Geist durch einen Spukfriedhof.
+Ein Arcade-Spiel, in dem deine eigene Vergangenheit dein Gegner ist.
 Läuft auf Handy und PC, ohne Installation und ohne Build-Schritt.
+
+## Die Idee
+
+Alle **4 Sekunden** wird ein **Clip** von dir aufgenommen. Ab dann spukt dein
+**Echo** genau diese 4 Sekunden in Dauerschleife durch die Arena (hin und zurück).
+Je mehr du dich bewegst, desto voller wird die Arena mit deinen eigenen Geistern.
 
 ## Spielen
 
-- **Tippen / Klicken / Leertaste**: hochschweben
-- Den Steinsäulen und (ab 12 Punkten) den Fledermäusen ausweichen
-- **Seelen** (leuchtende Kugeln) geben +1 Punkt. Bei 5 Seelen startet der
-  **Geistermodus**, dann fliegst du 4 Sekunden lang durch Wände.
-- Ab 8 Punkten bewegen sich manche Säulen.
+- **Bewegen:** auf dem Handy ziehen (irgendwo auf dem Bildschirm), am PC Maus oder WASD / Pfeiltasten
+- **Seelen** einsammeln (+10). Sammelst du schnell hintereinander, steigt die Combo bis x6.
+  Goldene Seelen bringen +50 und eine Dash-Ladung.
+- **Berühr nie deine Echos.** Frische Echos sind kurz durchsichtig und noch harmlos.
+- **Dash** (Tippen / Klick / Leertaste / Shift): kurzer Sprint, bei dem du unverwundbar bist.
+  Echos, durch die du dashst, werden zerstört. Kostet 1 Ladung, 3 Seelen = 1 Ladung (max. 3).
+- Echos sammeln auch Seelen ein (+5 für dich), klauen dir aber die Combo.
+- Alle 20 Sekunden steigt das Level: mehr Echos gleichzeitig, schnellere Echos, mehr Seelen.
 - **P / Esc**: Pause, **M**: Ton an/aus
 
 Die Top-5-Highscores werden lokal im Browser gespeichert.
@@ -37,7 +46,7 @@ Auf dem Handy kann man die Seite über „Zum Home-Bildschirm hinzufügen“ wie
 | --- | --- |
 | `index.html` | Seite, Menüs, HUD |
 | `style.css` | Aussehen der Menüs und des HUD |
-| `game.js` | Das ganze Spiel (Canvas-Grafik, Physik, Sounds, Highscores) |
+| `game.js` | Das ganze Spiel (Echo-Aufnahme, Grafik, Sounds, Highscores) |
 | `icon.svg`, `icon-180.png`, `manifest.webmanifest` | App-Icon und Home-Bildschirm-Unterstützung |
 
-Die Werte für Schwierigkeit, Tempo usw. stehen gesammelt oben in `game.js` im `CFG`-Objekt.
+Die Werte für Clip-Länge, Tempo, Echo-Anzahl usw. stehen gesammelt oben in `game.js` im `CFG`-Objekt.
