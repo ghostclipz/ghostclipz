@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#120d26">
+  <meta name="description" content="Ghostclipz – flieg als kleiner Geist durch den Spukfriedhof.">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Ghostclipz</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon-180.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Creepster&family=Nunito:wght@600;800;900&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="game" aria-label="Spielfeld"></canvas>
+
+  <div id="hud" class="hidden">
+    <div id="meter" title="Spuk-Energie: 5 Seelen = Geistermodus">
+      <svg class="meter-icon" viewBox="0 0 128 128" aria-hidden="true">
+        <path d="M64 22c-20 0-34 15-34 34v48l9-7 8 7 8-7 9 7 9-7 8 7 8-7 9 7V56c0-19-14-34-34-34z" fill="currentColor"/>
+      </svg>
+      <div class="meter-bar"><div id="meter-fill"></div></div>
+    </div>
+    <div id="score">0</div>
+    <div class="hud-buttons">
+      <button id="btn-mute" class="icon-btn" type="button" aria-label="Ton aus"></button>
+      <button id="btn-pause" class="icon-btn" type="button" aria-label="Pause">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <section id="screen-menu" class="screen">
+    <img class="menu-ghost" src="icon.svg" alt="" width="96" height="96">
+    <h1 class="logo">Ghost<span>clipz</span></h1>
+    <p class="tagline">Flieg durch den Spukfriedhof.</p>
+    <ul class="howto">
+      <li><kbd>Tippen</kbd> / <kbd>Leertaste</kbd> → hochschweben</li>
+      <li>Säulen und Fledermäusen ausweichen</li>
+      <li><span class="orb-dot" aria-hidden="true"></span> 5 Seelen → <b>Geistermodus</b>: durch Wände fliegen</li>
+    </ul>
+    <button id="btn-start" class="btn primary" type="button">Spielen</button>
+    <p class="best-line">Rekord: <strong id="menu-best">0</strong></p>
+  </section>
+
+  <section id="screen-pause" class="screen hidden">
+    <h2>Pause</h2>
+    <button id="btn-resume" class="btn primary" type="button">Weiter</button>
+    <button id="btn-quit" class="btn" type="button">Menü</button>
+  </section>
+
+  <section id="screen-over" class="screen hidden">
+    <h2>Buh! Erwischt.</h2>
+    <div class="result">
+      <div><span class="label">Punkte</span><strong id="over-score">0</strong></div>
+      <div><span class="label">Rekord</span><strong id="over-best">0</strong></div>
+    </div>
+    <p id="new-record" class="new-record hidden">Neuer Rekord!</p>
+    <ol id="highscores" class="highscores"></ol>
+    <button id="btn-retry" class="btn primary" type="button">Nochmal</button>
+    <button id="btn-menu" class="btn" type="button">Menü</button>
+  </section>
+
+  <script src="game.js"></script>
+</body>
+</html>
